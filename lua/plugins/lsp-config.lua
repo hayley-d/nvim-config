@@ -7,26 +7,48 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {"lua_ls","ts_ls","eslint"}
-      })
-    end
+    lazy = false,
+    opts = {
+      auto_install = true
+    },
   },
   {
     'mfussenegger/nvim-jdtls',
   },
   {
     "neovim/nvim-lspconfig",
-       config = function()
+    lazy = false,
+    config = function()
+      --local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local lspconfig = require("lspconfig")
+
       -- setup lua langauge server
-      lspconfig.lua_ls.setup({})
+      lspconfig.lua_ls.setup({
+        --capabilities = capabilities
+      })
       -- setup ts language server
-      lspconfig.ts_ls.setup({})
+      lspconfig.ts_ls.setup({
+        --capabilities = capabilities
+      })
+      -- setup html language server
+      lspconfig.html.setup({
+        --capabilities = capabilities
+      })
+      -- c++ setup
+      lspconfig.clangd.setup({
+        --capabilities = capabilities
+      })
+      -- Rust LSP setup
+      lspconfig.rust_analyzer.setup({
+        --capabilities = capabilities
+      })
+      -- Go LSP setup
+      lspconfig.gopls.setup({
+        --capabilities = capabilities
+      })
       -- setup eslint
       lspconfig.eslint.setup({
-        bin = 'eslint', -- or `eslint_d`
+        bin = 'eslint',
         code_actions = {
           enable = true,
           apply_on_save = {
@@ -35,8 +57,7 @@ return {
           },
           disable_rule_comment = {
             enable = true,
-            location = "separate_line", -- or `same_line`
-          },
+            location = "separate_line",           },
         },
         diagnostics = {
           enable = true,

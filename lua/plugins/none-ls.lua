@@ -14,6 +14,7 @@ return {
         null_ls.builtins.formatting.dxfmt,
         -- js, ts, json formatting
         null_ls.builtins.formatting.prettier,
+        --null_ls.builtins.diagnostics.eslint_d,
         -- Go formatting
         null_ls.builtins.formatting.gofumpt
 				--require("none-ls.diagnostics.eslint")
