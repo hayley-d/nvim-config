@@ -9,14 +9,14 @@ return {
         -- assembly formatting
         null_ls.builtins.formatting.asmfmt,
         -- java and c++ formatting
-        null_ls.builtins.formatting.clang_format,
-        -- rust formatting
-        null_ls.builtins.formatting.dxfmt,
+        --null_ls.builtins.formatting.clang_format,
+        -- Rust formatting using rustfmt
+				--null_ls.builtins.formatting.rustfmt,
         -- js, ts, json formatting
         null_ls.builtins.formatting.prettier,
         --null_ls.builtins.diagnostics.eslint_d,
         -- Go formatting
-        null_ls.builtins.formatting.gofumpt
+        --null_ls.builtins.formatting.gofumpt
 				--require("none-ls.diagnostics.eslint")
 			},
 		})
