@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = {"lua_ls","ts_ls"}
+        ensure_installed = {"lua_ls","ts_ls","eslint"}
       })
     end
   },
@@ -24,6 +24,26 @@ return {
       lspconfig.lua_ls.setup({})
       -- setup ts language server
       lspconfig.ts_ls.setup({})
+      -- setup eslint
+      lspconfig.eslint.setup({
+        bin = 'eslint', -- or `eslint_d`
+        code_actions = {
+          enable = true,
+          apply_on_save = {
+            enable = true,
+            types = { "directive", "problem", "suggestion", "layout" },
+          },
+          disable_rule_comment = {
+            enable = true,
+            location = "separate_line", -- or `same_line`
+          },
+        },
+        diagnostics = {
+          enable = true,
+          report_unused_disable_directives = false,
+          run_on = "type", -- or `save`
+        },
+      })
       
       -- vim motion for <shift> + k to show documentation about the code under the cursor
       vim.keymap.set('n','K',vim.lsp.buf.hover,{})
