@@ -9,7 +9,7 @@ return {
         -- assembly formatting
         null_ls.builtins.formatting.asmfmt,
         -- java and c++ formatting
-        --null_ls.builtins.formatting.clang_format,
+        null_ls.builtins.formatting.clang_format,
         -- Rust formatting using rustfmt
 				--null_ls.builtins.formatting.rustfmt,
         -- js, ts, json formatting
