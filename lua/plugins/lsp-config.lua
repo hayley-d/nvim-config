@@ -38,6 +38,17 @@ return {
             lspconfig.clangd.setup({
                 --capabilities = capabilities
             })
+            -- Python LSP setup
+            lspconfig.pyright.setup({
+                --capabilities = capabilities
+            })
+            -- Autoformat Python on save
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                pattern = "*.py",
+                callback = function()
+                    vim.lsp.buf.format({ async = false })
+                end,
+            })
             -- Rust LSP setup
             lspconfig.rust_analyzer.setup({
                 --capabilities = capabilities
